@@ -22,7 +22,7 @@ public class HighRollerGame {
                     highest = Math.max(highest, diceSet.sum());
                     System.out.println("You are now using a " + diceSet.descriptor());
                     System.out.println(diceSet);
-                } else if (command.matches("roll\\s+all")) {
+                } else if (command.matches(String.utils.normalizeSpace("roll " + diceSet.numberOfDice + diceSet.sides) )) {
                     if (diceSet == null) {
                         throw new IllegalStateException("You don't have any dice yet");
                     }
