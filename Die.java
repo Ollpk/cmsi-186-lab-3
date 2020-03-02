@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A simple class for representing die objects. A die has a given number of
@@ -9,7 +10,14 @@ import java.util.Random;
 public class Die {
     private static Random random = new Random();
 
+    public static final String SIX_SIDED_DIE_EMOJI = "🎲";
+
+    private int value;
+    private final int sides; //sides is an integer. Toal wants us to see it so its public but does not want us to change it.
+
     // TODO: Add fields
+
+   
 
     /**
      * Constructs a die with the given number of sides and starting value.
@@ -17,6 +25,18 @@ public class Die {
      * if the starting value is not consistent with the number of sides.
      */
     public Die(int sides, int value) {
+      if (sides <4) {
+        throw new IllegalArgumentException("At least two dice required");
+      }
+      if (value < 1) {
+        throw new IllegalArgumentException("Die value not legal for die shape");
+      } 
+      if (value > sides) {
+        throw new IllegalArgumentException( "Die value not legal for die shape");
+      }
+      this.sides = sides;
+      this.value = value;
+
         // TODO
     }
 
@@ -25,6 +45,8 @@ public class Die {
      * mutating the die's value, this method also returns the new updated value.
      */
     public int roll() {
+      value = ThreadLocalRandom.current().nextInt(1, sides + 1);
+      return value; //FIX ME
         // TODO
     }
 
@@ -32,6 +54,7 @@ public class Die {
      * Returns the number of sides of this die.
      */
     public int getSides() {
+      return sides;
         // TODO
     }
 
@@ -39,6 +62,7 @@ public class Die {
      * Returns the value of this die.
      */
     public int getValue() {
+      return value;
         // TODO
     }
 
@@ -47,6 +71,7 @@ public class Die {
      * brackets, without spaces, for example "[5]".
      */
     @Override public String toString() {
+      return "[" + value + "]"; //Fix ME
         // TODO
     }
 }
