@@ -14,7 +14,7 @@ public class HighRollerGame {
                 } else if (command.matches("q(uit)?")) {
                     System.out.println("I'm glad you played today. You look great!");
                     break;
-                } else if (command.matches("use " + diceSet.sides + " " + diceSet.numberOfDice)) {
+                } else if (command.matches(StringUtils.normalizeSpace("use " + diceSet.sides + " " + diceSet.numberOfDice))) {
                     var tokens = command.split("\\s+");
                     var sides = Integer.parseInt(tokens[1].trim());
                     var number = Integer.parseInt(tokens[2].trim());
