@@ -1,7 +1,1 @@
-# CMSI 186 Lab 3 High Roller Starter Code
-
-This repository contains some unfinished Java programs that you are complete.
-
-Import this repository into a new repository of your own and write the code according to the lab [instructions](https://cs.lmu.edu/~ray/classes/plab/lab/3/). Use the provided test scripts.
-
-In your new repository, don’t forget to edit this README file, as _your_ repository will certainly not contain any unfinished Java programs.
+In this repository, I implemented three classes: a die class (which represents a single die with an unchangable number of sides yet a changeable value for what can be on each face of the die), a DiceSet class (which represents at least two or more Die objects however must have all the Die have the asme number of sides), and a HighRollerGame class (which is a command line game that rolls the dice) and prints out the highest score of what you have rolled. 
